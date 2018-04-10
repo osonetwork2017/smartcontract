@@ -197,22 +197,22 @@ contract MintableToken is StandardToken, Ownable {
 
 
 /**
- * @title OneCoinToken
+ * @title OBTToken
  * @dev Very simple ERC20 Token example, where all tokens are pre-assigned to the creator.
  * Note they can later distribute these tokens as they wish using `transfer` and other
  * `StandardToken` functions.
  */
-contract OneCoinToken is MintableToken {
+contract OBTToken is MintableToken {
 
-    string public constant name = "OneCoin";
-    string public constant symbol = "OC";
+    string public constant name = "OneBit";
+    string public constant symbol = "OBT";
     uint8 public constant decimals = 18;
 
     /**
      * @dev Constructor that gives msg.sender all of existing tokens.
      */
-    function OneCoinToken() public {
-        hardCap = 75 * 1000000 * (10 ** uint256(decimals));
+    function OBTToken() public {
+        hardCap = 125 * 1000000 * (10 ** uint256(decimals));
     }
 
 

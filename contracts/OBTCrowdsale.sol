@@ -1,22 +1,22 @@
 pragma solidity ^0.4.18;
 
-import './OneCoinToken.sol';
+import './OBTToken.sol';
 import './SafeMath.sol';
 import './Ownable.sol';
 
 /**
- * @title OCCrowdsale
- * @dev OCCrowdsale is a completed contract for managing a token crowdsale.
- * OCCrowdsale have a start and end timestamps, where investors can make
- * token purchases and the OCCrowdsale will assign them tokens based
+ * @title OBTCrowdsale
+ * @dev OBTCrowdsale is a completed contract for managing a token crowdsale.
+ * OBTCrowdsale have a start and end timestamps, where investors can make
+ * token purchases and the OBTCrowdsale will assign them tokens based
  * on a token per ETH rate. Funds collected are forwarded to a wallet
  * as they arrive.
  */
-contract OCCrowdsale is Ownable{
+contract OBTCrowdsale is Ownable{
     using SafeMath for uint256;
 
     // The token being sold
-    OneCoinToken public token;
+    OBTToken public token;
 
     // start and end timestamps where investments are allowed (both inclusive)
     uint256 public startTime;
@@ -47,7 +47,7 @@ contract OCCrowdsale is Ownable{
 
     event WalletAddressUpdated(bool state);
 
-    function OCCrowdsale(uint256 _startTime, uint256 _endTime, uint256 _rate, address _wallet, address _token, uint256 _cap) public {
+    function OBTCrowdsale(uint256 _startTime, uint256 _endTime, uint256 _rate, address _wallet, address _token, uint256 _cap) public {
         require(_startTime >= now);
         require(_endTime >= _startTime);
         require(_rate > 0);
@@ -55,7 +55,7 @@ contract OCCrowdsale is Ownable{
         require(_token != address(0));
         require(_cap > 0);
 
-        token = OneCoinToken(_token);
+        token = OBTToken(_token);
         startTime = _startTime;
         endTime = _endTime;
         rate = _rate;
@@ -112,9 +112,9 @@ contract OCCrowdsale is Ownable{
     }
 
     // update token contract
-    function updateOneCoinToken(address _tokenAddress) onlyOwner{
+    function updateOBTToken(address _tokenAddress) onlyOwner{
         require(_tokenAddress != address(0));
-        token = OneCoinToken(_tokenAddress);
+        token = OBTToken(_tokenAddress);
 
         TokenContractUpdated(true);
     }
