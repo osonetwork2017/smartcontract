@@ -212,7 +212,7 @@ contract OBTToken is MintableToken {
      * @dev Constructor that gives msg.sender all of existing tokens.
      */
     function OBTToken() public {
-        hardCap = 125 * 1000000 * (10 ** uint256(decimals));
+        hardCap = 250 * 1000000 * (10 ** uint256(decimals));
     }
 
 

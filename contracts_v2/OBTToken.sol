@@ -45,8 +45,8 @@ contract OBTToken is Ownable{
     string public constant symbol = "OBT";
     uint32 public constant decimals = 18;
 
-    uint constant start = 1525824000;// May 09, 2018, GMT
-    uint constant period = 90;
+    uint constant start = 1528021663;// June 26, 2018, GMT
+    uint constant period = 78;
     uint256 public constant hardcap = 250 * 1000000 * (10 ** uint256(decimals));
     uint256 public constant salecap = 125 * 1000000 * (10 ** uint256(decimals));
 
